@@ -1,0 +1,11 @@
+D:\Hilman\Kokkun Virtual School\map\Backend\bin\Debug\net9.0\Backend.exe
+D:\Hilman\Kokkun Virtual School\map\Backend\bin\Debug\net9.0\Backend.dll
+D:\Hilman\Kokkun Virtual School\map\Backend\bin\Debug\net9.0\Microsoft.AspNetCore.OpenApi.dll
+D:\Hilman\Kokkun Virtual School\map\Backend\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.dll
+D:\Hilman\Kokkun Virtual School\map\Backend\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\Hilman\Kokkun Virtual School\map\Backend\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\Hilman\Kokkun Virtual School\map\Backend\bin\Debug\net9.0\Microsoft.OpenApi.dll
+D:\Hilman\Kokkun Virtual School\map\Backend\bin\Debug\net9.0\NetTopologySuite.dll
+D:\Hilman\Kokkun Virtual School\map\Backend\bin\Debug\net9.0\Npgsql.dll
+D:\Hilman\Kokkun Virtual School\map\Backend\bin\Debug\net9.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+D:\Hilman\Kokkun Virtual School\map\Backend\bin\Debug\net9.0\Npgsql.EntityFrameworkCore.PostgreSQL.NetTopologySuite.dll

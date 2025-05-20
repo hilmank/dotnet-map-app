@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rekapitulasi Sekolah per Kecamatan</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://d3js.org/d3-color.v3.min.js"></script>
+    <script src="https://d3js.org/d3-interpolate.v3.min.js"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v3.min.js"></script>
+    <script src="https://d3js.org/d3-scale.v3.min.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        .top-section {
+            display: flex;
+            flex-direction: row;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 0 12px 12px 12px;
+            overflow: auto;
+        }
+
+        .card h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .left,
+        .right {
+            width: 25%;
+            max-height: 70vh;
+        }
+
+        .middle {
+            width: 50%;
+        }
+
+        #map {
+            height: 70vh;
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 6px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #2c3e50;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        @media (max-width: 768px) {
+            .top-section {
+                flex-direction: column;
+            }
+
+            .left,
+            .middle,
+            .right {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top-section">
+        <!-- Kiri -->
+        <div class="card left">
+            <h3>Daftar PKBM (1–20)</h3>
+            <table id="pkbmLeft">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Nama PKBM</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+
+        <!-- Tengah: Peta -->
+        <div class="card middle">
+            <div id="map"></div>
+        </div>
+
+        <!-- Kanan -->
+        <div class="card right">
+            <h3>Daftar PKBM (21–dst)</h3>
+            <table id="pkbmRight">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Nama PKBM</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Bawah: Rekap -->
+    <div class="card">
+        <h3>Rekapitulasi Per Kecamatan</h3>
+        <table id="summaryTable">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Kecamatan</th>
+                    <th>Negeri</th>
+                    <th>Swasta</th>
+                    <th>A</th>
+                    <th>B</th>
+                    <th>C</th>
+                    <th>ISO 9001:2000</th>
+                    <th>ISO 9001:2008</th>
+                    <th>Jumlah</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <script>
+        const map = L.map('map').setView([-6.6, 106.8], 12);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Load batas kecamatan
+        fetch('kecamatan_bogor.geojson')
+            .then(res => res.json())
+            .then(geojson => {
+                const kecamatanNames = geojson.features.map(f => f.properties.NAMOBJ);
+                const colorScale = d3.scaleOrdinal(d3.schemeCategory10).domain(kecamatanNames);
+
+                L.geoJSON(geojson, {
+                    style: f => ({
+                        color: 'black',
+                        weight: 1,
+                        fillColor: colorScale(f.properties.NAMOBJ),
+                        fillOpacity: 0.4
+                    }),
+                    onEachFeature: (f, layer) => {
+                        if (f.properties?.NAMOBJ) {
+                            layer.bindPopup("Kecamatan: " + f.properties.NAMOBJ);
+                        }
+                    }
+                }).addTo(map);
+            });
+
+        // Load rekap
+        fetch('http://localhost:5034/api/Locations/summary')
+            .then(res => res.json())
+            .then(data => {
+                const tbody = document.querySelector("#summaryTable tbody");
+                data.forEach((loc, i) => {
+                    const row = `
+            <tr>
+              <td>${i + 1}</td><td>${loc.kecamatan}</td>
+              <td>${loc.negeri}</td><td>${loc.swasta}</td>
+              <td>${loc.a}</td><td>${loc.b}</td><td>${loc.c}</td>
+              <td>${loc.iso2000}</td><td>${loc.iso2008}</td><td>${loc.jumlah}</td>
+            </tr>
+          `;
+                    tbody.insertAdjacentHTML('beforeend', row);
+                });
+            });
+
+        // Load dan tampilkan PKBM ke peta dan ke dua tabel
+        fetch('pkbm_bogor.geojson')
+            .then(res => res.json())
+            .then(pkbmGeojson => {
+                const leftBody = document.querySelector("#pkbmLeft tbody");
+                const rightBody = document.querySelector("#pkbmRight tbody");
+
+                L.geoJSON(pkbmGeojson, {
+                    pointToLayer: (feature, latlng) => {
+                        return L.circleMarker(latlng, {
+                            radius: 6,
+                            fillColor: "#e74c3c",
+                            color: "#fff",
+                            weight: 1,
+                            opacity: 1,
+                            fillOpacity: 0.9
+                        });
+                    },
+                    onEachFeature: (feature, layer) => {
+                        const nama = feature.properties.nama;
+                        layer.bindPopup(`<strong>${nama}</strong>`);
+
+                        const count = leftBody.children.length + rightBody.children.length + 1;
+                        const row = `<tr><td>${count}</td><td>${nama}</td></tr>`;
+                        if (count <= 20) {
+                            leftBody.insertAdjacentHTML('beforeend', row);
+                        } else {
+                            rightBody.insertAdjacentHTML('beforeend', row);
+                        }
+                    }
+                }).addTo(map);
+            });
+    </script>
+</body>
+
+</html>

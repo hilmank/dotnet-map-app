@@ -1,0 +1,395 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "PKBM Bina Warga Mandiri"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [106.78410930654204, -6.642226233733421]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "PKBM SMX (Sekolah Muda Xplora)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [106.82370151739457, -6.575099626665192]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "PKBM Eskayede"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [106.791023, -6.591289998703539]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "PKBM Gumilang"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [106.79172933861834, -6.604494781087113]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "PKBM Harapan Jaya"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [106.7709445079275, -6.581621026244877]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "PKBM Jaya Sentosa"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [106.75435667723667, -6.564444108143759]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "PKBM Nurul Huda"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [106.76819567723668, -6.5643588401641715]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "PKBM Putra Harapan Bangsa"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [106.75962616930916, -6.570476930803765]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "PKBM Andalan"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [106.83371516930917, -6.641080162004495]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "PKBM Cemara"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [106.821297, -6.656523212902905]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "PKBM Mandiri"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [106.82965616930916, -6.650861194227914]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "PKBM Mitra Amanah"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [106.82544150792752, -6.672280264957507]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "PKBM Mulyaraharja"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [106.78113133861831, -6.645065428935771]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "PKBM Wijaya Kusuma"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [106.81408667723667, -6.631678106715664]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "PKBM Insan Mandiri"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [106.82485967723667, -6.6292506362031025]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "PKBM Tunas Mekar"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [106.84992633861833, -6.647694930454769]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "PKBM Al Jauhar"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [106.82001833861834, -6.58299470711031]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "PKBM Komunitas Mandiri"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [106.80561799999998, -6.5853969794566725]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "PKBM Kuttab Al-Fatih"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [106.78399616930918, -6.525240235210819]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "PKBM Nurul Hidayah"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [106.8057151693092, -6.542779840777311]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "PKBM Cemerlang"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [106.80432283069084, -6.589065727974964]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "PKBM Citra Pakuan"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [106.79986966138169, -6.5882389344078724]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "PKBM Kartini"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [106.78858383069083, -6.5910947349524465]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "PKBM Matahari"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [106.79174616930916, -6.598086020920924]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "PKBM Padjadjaran"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [106.7920395079275, -6.578909427888695]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "PKBM Poetra Mandiri"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [106.794876, -6.59580501346138]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "PKBM Sempurna"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [106.80125432276333, -6.595348487220914]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "PKBM Karya Mekar"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [106.78185884654583, -6.530536621632487]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "PKBM Stq Al-Bukhari Bogor"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [106.78965549207248, -6.532309260499498]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "PKBM EBHS"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [106.77171916930916, -6.543121027925067]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "PKBM ABHOME"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [106.78305283069083, -6.531209890024893]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "PKBM Bintang Tunas Mulia (BTM)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [106.77505467723667, -6.53903564481819]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "PKBM Damai Mekar"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [106.79407284654583, -6.51839448628054]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "PKBM Merpati"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [106.76945066138167, -6.5288845219922935]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "PKBM Pelangi Satya Darma"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [106.77910083069082, -6.561095363760182]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "PKBM Sekar Bondes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [106.78637118516419, -6.522730676691591]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "PKBM Visi Anak Bangsa"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [106.794502, -6.518735589488534]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Homeschooling Talenta"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [106.7983594576727, -6.562646707630966]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama": "Sekolah Kreativa Bogor"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [106.77874, -6.558198]
+      }
+    }
+  ]
+}
