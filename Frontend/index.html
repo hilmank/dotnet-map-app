@@ -97,12 +97,23 @@
                 width: 100%;
             }
         }
+
+        .legend {
+            line-height: 1.2em;
+        }
+
+        .legend i {
+            width: 12px;
+            height: 12px;
+            float: left;
+            margin-right: 6px;
+            opacity: 0.9;
+        }
     </style>
 </head>
 
 <body>
     <div class="top-section">
-        <!-- Kiri -->
         <div class="card left">
             <h3>Daftar PKBM (1–20)</h3>
             <table id="pkbmLeft">
@@ -116,12 +127,10 @@
             </table>
         </div>
 
-        <!-- Tengah: Peta -->
         <div class="card middle">
             <div id="map"></div>
         </div>
 
-        <!-- Kanan -->
         <div class="card right">
             <h3>Daftar PKBM (21–dst)</h3>
             <table id="pkbmRight">
@@ -136,7 +145,6 @@
         </div>
     </div>
 
-    <!-- Bawah: Rekap -->
     <div class="card">
         <h3>Rekapitulasi Per Kecamatan</h3>
         <table id="summaryTable">
@@ -165,12 +173,14 @@
             attribution: '© OpenStreetMap contributors'
         }).addTo(map);
 
-        // Load batas kecamatan
+        let kecamatanNames = [];
+        let colorScale;
+
         fetch('kecamatan_bogor.geojson')
             .then(res => res.json())
             .then(geojson => {
-                const kecamatanNames = geojson.features.map(f => f.properties.NAMOBJ);
-                const colorScale = d3.scaleOrdinal(d3.schemeCategory10).domain(kecamatanNames);
+                kecamatanNames = geojson.features.map(f => f.properties.NAMOBJ);
+                colorScale = d3.scaleOrdinal(d3.schemeCategory10).domain(kecamatanNames);
 
                 L.geoJSON(geojson, {
                     style: f => ({
@@ -185,9 +195,31 @@
                         }
                     }
                 }).addTo(map);
+
+                // Add legend
+                const legend = L.control({ position: 'bottomleft' });
+
+                legend.onAdd = function () {
+                    const div = L.DomUtil.create('div', 'info legend');
+                    div.style.background = 'white';
+                    div.style.padding = '8px';
+                    div.style.borderRadius = '5px';
+                    div.style.boxShadow = '0 0 6px rgba(0,0,0,0.2)';
+                    div.style.fontSize = '12px';
+
+                    div.innerHTML = '<strong>Kecamatan</strong><br>';
+
+                    kecamatanNames.forEach(name => {
+                        const color = colorScale(name);
+                        div.innerHTML += `<i style="background:${color};"></i> ${name}<br>`;
+                    });
+
+                    return div;
+                };
+
+                legend.addTo(map);
             });
 
-        // Load rekap
         fetch('http://localhost:5034/api/Locations/summary')
             .then(res => res.json())
             .then(data => {
@@ -205,7 +237,6 @@
                 });
             });
 
-        // Load dan tampilkan PKBM ke peta dan ke dua tabel
         fetch('pkbm_bogor.geojson')
             .then(res => res.json())
             .then(pkbmGeojson => {
